@@ -1,16 +1,20 @@
-import OnSaleNow from "./components/onSaleNow.jsx";
-import ProductCard from "./components/productCard.jsx";
-import UserData from "./components/userData.jsx";
+import { Route, Routes } from "react-router-dom"
+import AdminPage from "../pages/admin"
+import HomePage from "../pages/home"
+import LoginPage from "../pages/login"
 
 function App() {
 
   return (
-    <div className=" bg-red-300 border-4 border-amber-400">  
-    <UserData/>
+    <div className="w-full h-screen">
+      <Routes>
+        
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/admin/*" element={<AdminPage />}/>
+        <Route path="/login" element={<LoginPage />} />
 
-    <OnSaleNow/>
+      </Routes>
     </div>
-    
   )
 }
 
