@@ -1,24 +1,33 @@
+import { useState } from "react";
 
 export default function Test(){
+  const [count,setCount] = useState(0);
+  const [status,setStatus] = useState("Sleeping");
+  const [isVisible,setIsVisible] = useState(true);
+
   return (
-    <div className="w-full h-full relative flex flex-wrap">
+    <div className="w-full h-full bg-amber-500 flex flex-col justify-center items-center">
+      <h1>{isVisible}</h1>
+      <button onClick={() => {
+          setIsVisible(!isVisible)
+        }}>{isVisible?"X":"O"}</button>
+      {isVisible && <div className="w-[400px] h-[400px] bg-white flex flex-col justify-center items-center">
+        
+        <h1 className="text-[55px]">{count}</h1>
 
-      <div className="w-[200px] h-[200px] bg-blue-400 m-[20px] p-[10px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, fugit.</div>
-      <div className="w-[200px] h-[200px] bg-red-400 m-[20px]">Box2</div>
-      <div className="w-[200px] h-[200px] bg-yellow-400">Box3</div>
-      <div className="w-[200px] h-[200px] bg-green-400">Box4</div>
-      <div className="w-[200px] h-[200px] bg-black">Box5</div>
-      <div className="w-[200px] h-[200px] bg-cyan-400">Box1</div>
-      <div className="w-[200px] h-[200px] bg-purple-400">Box1</div>
-      <div className="w-[200px] h-[200px] bg-pink-400">Box1</div>
-      <div className="w-[200px] h-[200px] bg-amber-400">Box1</div>
-      <div className="w-[200px] h-[200px] bg-emerald-400">Box1</div>
-      <div className="w-[200px] h-[200px] bg-purple-600">Box1</div>
-      <div className="w-[200px] h-[200px] bg-lime-500">Box1</div>
-      <div className="w-[200px] h-[200px] bg-gray-600">Box1</div>
-      <div className="w-[200px] h-[200px] bg-orange-500">Box1</div>
-      <div className="w-[200px] h-[200px] bg-teal-700">Box1</div>
+        <div className="w-full h-[50px] bg-sky-400 flex justify-center items-center gap-3">
+        <button className="w-[100px] h-[45px] bg-red-800 text-white" onClick={() => setCount(count - 1)}>Decrement</button>
+        <button className="w-[100px] h-[45px] bg-green-400 text-white" onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
 
+        <h1 className="text-[55px]">{status}</h1>
+
+        <div className="w-full h-[50px] bg-sky-400 flex justify-center items-center gap-3">
+        <button className="w-[100px] h-[45px] bg-red-800 text-white" onClick={() => setStatus("Sleeping")}>Sleep</button>
+        <button className="w-[100px] h-[45px] bg-green-400 text-white" onClick={() => setStatus("Awake")}>Awake</button>
+        </div>
+
+      </div>}
     </div>
   )
 }
