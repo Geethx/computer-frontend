@@ -1,0 +1,85 @@
+import { useState } from "react"
+
+export default function AdminAddProductPage(){
+
+    const [productId, setProductId] = useState("");
+    const [productName, setProductName] = useState("");
+    const [description, setDescription] = useState("");
+    const [altNames, setAltNames] = useState("");
+    const [price, setPrice] = useState("");
+    const [labeledPrice, setLabeledPrice] = useState("");
+    const [category, setCategory] = useState("");
+    const [brand, setBrand] = useState("");
+    const [model, setModel] = useState("");
+    const [isVisible, setIsVisible] = useState(false);
+
+    return(
+        <div className="w-full max-h-full flex flex-wrap items-start">
+                <div className="w-[50%] h-[120px] flex flex-col"> 
+                    <label className="text-black font-bold ml-2">Product ID:</label>
+                    <input value={productId} onChange={(e) => {setProductId(e.target.value)}} type="text" placeholder="Ex:ID001"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white"/>
+                </div>
+
+                <div className="w-[50%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Product Name:</label>
+                    <input value={productName} onChange={(e) => {setProductName(e.target.value)}} type="text" placeholder="Ex:Laptop"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white"/>
+                </div>
+
+                <div className="w-full h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Description:</label>
+                    <textarea value={description} onChange={(e) => {setDescription(e.target.value)}} placeholder="Ex:High-performance laptop for gaming and work"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white resize-none" rows="3"></textarea>
+                </div>
+
+                <div className="w-full h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Alternative Names:</label>
+                    <input value={altNames} onChange={(e) => {setAltNames(e.target.value)}} type="text" placeholder="Ex:Gaming Laptop, Notebook"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white"/>
+                </div>
+
+                <div className="w-[50%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Price:</label>
+                    <input value={price} onChange={(e) => {setPrice(e.target.value)}} type="number" placeholder="Ex:50000"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white"/>
+                </div>
+
+                <div className="w-[50%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Labeled Price:</label>
+                    <input value={labeledPrice} onChange={(e) => {setLabeledPrice(e.target.value)}} type="number" placeholder="Ex:55000"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white"/>
+                </div>
+
+                <div className="w-[25%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Category:</label>
+                    <select value={category} onChange={(e) => {setCategory(e.target.value)}} className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white">
+                        <option value="">Select Category</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="desktops">Desktops</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="components">Components</option>
+                    </select>
+                </div>
+
+                <div className="w-[25%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Brand:</label>
+                    <select value={brand} onChange={(e) => {setBrand(e.target.value)}} className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white">
+                        <option value="">Select Brand</option>
+                        <option value="dell">Dell</option>
+                        <option value="hp">HP</option>
+                        <option value="asus">Asus</option>
+                        <option value="lenovo">Lenovo</option>
+                        <option value="acer">Acer</option>
+                    </select>
+                </div>
+
+                <div className="w-[25%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Model:</label>
+                    <input value={model} onChange={(e) => {setModel(e.target.value)}} type="text" placeholder="Ex:XPS 15"  className="rounded-md border-2 border-accent p-2 m-2 focus:outline-white"/>
+                </div>
+
+                <div className="w-[25%] h-[120px] flex flex-col">
+                    <label className="text-black font-bold ml-2">Is Visible:</label>
+                    <div className="flex items-center m-2">
+                        <input onChange={(e) => {setIsVisible(e.target.checked)}} type="checkbox" checked={isVisible} className="w-5 h-5 accent-accent"/>
+                        <span className="ml-2 text-sm">Show product on website</span>
+                    </div>
+                </div>
+        </div>
+    )
+}
