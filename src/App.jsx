@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import AdminPage from "../pages/admin"
-import HomePage from "../pages/home"
-import LoginPage from "../pages/login"
+import AdminPage from "./pages/admin.jsx"
+import HomePage from "./pages/home.jsx"
+import LoginPage from "./pages/login.jsx"
 import Test from "./components/test.jsx"
 import { Toaster } from "react-hot-toast"
 
